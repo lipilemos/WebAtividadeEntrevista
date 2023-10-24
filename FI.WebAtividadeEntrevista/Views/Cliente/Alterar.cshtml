@@ -1,0 +1,25 @@
+﻿@model WebAtividadeEntrevista.Models.ClienteModel
+@{
+    ViewBag.Title = "Alterar Cliente";
+}
+@section scripts{
+    <script>
+        var urlPost = '@Url.Action("Alterar", "Cliente", new { area = "" })';
+        var obj = @Html.Raw(Json.Encode(Model));
+        var urlRetorno = '@Url.Action("Index", "Cliente", new { area = "" })';
+
+
+        //var urlBeneficiarioList = '@Url.Action("BeneficiarioList", "Cliente", new { area = "" })';
+        var urlRetornoBeneficiario = '@Url.Action("Alterar", "Cliente", new { area = "" })';
+        var urlPostBeneficiario = '@Url.Action("IncluirBeneficiario", "Beneficiario", new { area = "" })';
+        var urlAlteracaoBeneficiario = '@Url.Action("AlterarBeneficiario", "Beneficiario", new { area = "" })';
+        var urlExcluirBeneficiario = '@Url.Action("ExluirBeneficiario", "Beneficiario", new { area = "" })';
+
+
+    </script>
+    @Scripts.Render("~/bundles/beneficiarios")
+    @Scripts.Render("~/bundles/altClientes")
+    @Scripts.Render("~/bundles/altBeneficiarios")
+}
+<h2>@Html.Raw(ViewBag.Title)</h2>
+@Html.Partial("Forms")
